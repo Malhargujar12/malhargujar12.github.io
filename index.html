@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malhar | Humanize Data</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LANDING PAGE -->
+  <div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+      <div class="logo-mark"></div>
+      <h1 class="brand-name">Malhar</h1>
+      <p class="tagline">I HUMANIZE DATA</p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <!--<nav class="top-nav">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">SERVICES</a>
+        <a href="#">CONTACT</a>
+      </nav>-->
+
+      <div class="content">
+        <h1>Welcome</h1>
+        <p>Turning data into meaningful insights</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ENTER BUTTON -->
+  <button class="enter-btn" onclick="openDoors()">Enter</button>
+
+  <!-- DATA ANALYTICS LOADER -->
+  <!-- CLASSY DATA SCIENCE LOADER -->
+<div id="loader" class="analytics-loader">
+  <div class="loader-card">
+    <h2 class="loader-title">Preparing Insights</h2>
+    
+    <div class="finger-loader">
+      <div class="finger"></div>
+      <div class="finger"></div>
+      <div class="finger"></div>
+      <div class="finger"></div>
+      <div class="finger"></div>
+    </div>
+
+    <div class="loader-percent">
+      <span id="percent">0%</span>
+    </div>
+
+    <p class="loader-sub">Analyzing dataset & training models...</p>
+  </div>
+</div>
+
+  <!-- PAGE TWO -->
+  <div class="page-two">
+    <div class="intro-section">
+
+      <div class="intro-image">
+        <img src="IMG_6557.jpg" alt="Profile ">
+      </div>
+
+      <div class="intro-text">
+        <h1>Hello</h1>
+        <h3>My Journey in Data Science</h3>
+        <p>
+          The journey in Data Science started with a curiosity to understand how data can drive decisions. 
+          From building small predictive models to developing end-to-end projects, I’ve gained hands-on experience in Python, 
+          SQL, machine learning frameworks, and data visualization tools. 
+          Each project has been an opportunity to learn, experiment, and grow both technically and analytically.
+        </p>
+
+        <div class="cta-buttons">
+          <button id="resumeBtn" class="btn resume">View Resume</button>
+          <button class="btn projects">Explore Projects</button>
+          <button class="btn contact">Get in Touch</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAGE THREE (RESUME) -->
+  <div class="page-three">
+    <div class="resume-ds">
+
+      <header class="resume-header center">
+        <h1>Malhar Gujar</h1>
+        <p>Master’s Student — Data Science</p>
+      </header>
+
+      <div class="resume-grid">
+
+        <section class="resume-section">
+          <h2>Experience</h2>
+
+          <div class="item">
+            <span class="date">Jan 2024 – Mar 2024</span>
+            <h3>AI Intern — AICTE</h3>
+            <p>
+              Worked with real-world datasets, focusing on cleaning, preprocessing, 
+          and organizing data for analysis and modeling.
+            </p>
+          </div>
+
+          <div class="item">
+            <span class="date"></span>
+            <h3>Leadership & Collaboration</h3>
+            <p>Association of Computing Machinery (ACM)</p>
+            <p>Google Developers Student Club (GDSC)</p>
+            <p>Tedx</p>
+          </div>
+
+          
+        </section>
+
+        <aside class="resume-section light">
+          <h2>Skills & Education</h2>
+
+          <div class="skill-block">
+            <h4>Programming</h4>
+            <p>Python, SQL,HTML,CSS,JS</p>
+          </div>
+
+          <div class="skill-block">
+            <h4>Data Science</h4>
+            <p>Pandas, NumPy, Power BI, Tableau</p>
+          </div>
+
+          <div class="skill-block">
+            <h4>Education</h4>
+            <p>Master’s in Data Science (May 2027)</p>
+            <p>Bachelor's in Computer Engineering (May 2025)</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+    <div class="resume-footer-fixed"> 
+      <button class="download-btn">Download Resume</button> 
+      <div class="contact-links"> 
+        <a href="mailto:malharmgujar@gmail.com" target="_blank">Email</a> 
+        <a href="https://www.linkedin.com/in/malhar-gujar" target="_blank">LinkedIn</a> 
+      </div> 
+    </div>
+    
+
+
+  </div>
+  <!-- PAGE FOUR (PROJECTS) --> 
+<div class="page-four"> 
+  <div class="projects-container"> 
+    <h1 class="projects-title">Projects</h1> 
+    <div class="projects-grid"> 
+      
+      <div class="project-card" onclick="openProject('furinsight')">
+        <h2>FurInsight</h2> 
+        <p>Built a pet disease prediction system using structured symptom and health data, 
+          focusing on data quality and usability.
+        </p>
+        <span class="view-project">Click to view →</span>
+      </div>
+      
+      <div class="project-card" onclick="openProject('ai-internship')">
+        <h2>AI Internship Work</h2> 
+        <p>Worked with real-world datasets, focusing on cleaning, preprocessing, 
+          and organizing data for analysis and modeling.</p>
+        <span class="view-project">Click to view →</span>
+      </div>
+      
+      <div class="project-card" onclick="openProject('dashboard')">
+        <h2>Data Visualization Dashboard</h2> 
+        <p>Interactive dashboard built with Python, Plotly, and custom UI components.</p>
+        <span class="view-project">Click to view →</span>
+      </div>
+
+      <div class="project-card" onclick="openProject('copyright')">
+        <h2>Copyright</h2> 
+        <p>View copyright documentation and licensing information.</p>
+        <span class="view-project">Click to view →</span>
+      </div>
+      
+    </div> 
+  </div> 
+</div>
+   <!-- PAGE FIVE (GET IN TOUCH) -->
+   <!-- PAGE FIVE (GET IN TOUCH) -->
+<div class="page-five">
+  <div class="contact-container">
+
+    <h1 class="contact-title">Get in Touch</h1>
+    <p class="contact-sub">Feel free to reach out for collaborations, opportunities, or questions.</p>
+
+    <form id="contactForm" class="contact-form">
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Your Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" name="title" placeholder="What is this about?" required>
+      </div>
+
+      <div class="form-group">
+        <label>Your Message</label>
+        <textarea name="message" placeholder="Write your message..." required></textarea>
+      </div>
+
+      <button type="submit" class="send-btn">Send Message</button>
+
+      <p id="formStatus" class="form-status"></p>
+
+    </form>
+
+  </div>
+</div>
+
+  
+  
+  <!-- GLOBAL NAV BUTTONS -->
+  <button id="homeBtn" class="nav-btn home-btn">Home</button>
+  <button id="backBtn" class="nav-btn back-btn">Back</button>
+ 
+  <div id="messagePopup" class="popup"> 
+    <div class="popup-content"> 
+      <p id="popupText">Message sent successfully!</p> 
+    </div> 
+  </div>
+  <!-- SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script> 
+  emailjs.init("XOCf3yXQnWGb5kICA"); 
+  </script>
+  <script src="script.js"></script>
+
+
+</body>
+</html>
