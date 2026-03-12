@@ -110,7 +110,7 @@
   
 
 document.querySelector('.download-btn').addEventListener('click', () => {
-  window.open('Malhar_Resume (2).pdf', '_blank');
+  window.open('MalharResume (2).pdf', '_blank');
 });
 // Trigger Enter button when pressing Enter key
 document.addEventListener("keydown", (e) => {
