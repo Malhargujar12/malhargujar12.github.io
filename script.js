@@ -202,8 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // Simple version - opens URL in new tab
 function openProject(projectName) {
   const projectLinks = {
-    'furinsight': 'https://github.com/yourusername/furinsight',
-    'ai-internship': 'https://github.com/yourusername/ai-internship', 
+    'furinsight': 'https://github.com/Malhargujar12/FurInsight',
+    'ai-internship': '', 
     'dashboard': 'https://github.com/yourusername/dashboard',
     'copyright': 'Cover_Letter 1.pdf',
   };
