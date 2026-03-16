@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function openProject(projectName) {
   const projectLinks = {
     'furinsight': 'https://github.com/Malhargujar12/FurInsight',
-    'ai-internship': '', 
+    'ai-internship': 'AICTE intern Certificate.pdf', 
     'dashboard': 'https://github.com/yourusername/dashboard',
     'copyright': 'Cover_Letter 1.pdf',
   };
