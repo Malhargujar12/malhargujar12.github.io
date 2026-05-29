@@ -110,7 +110,7 @@
   
 
 document.querySelector('.download-btn').addEventListener('click', () => {
-  window.open('MalharResume (2).pdf', '_blank');
+  window.open('Resume_Malhar__1_.pdf', '_blank');
 });
 // Trigger Enter button when pressing Enter key
 document.addEventListener("keydown", (e) => {
@@ -205,7 +205,7 @@ function openProject(projectName) {
     'furinsight': 'https://github.com/Malhargujar12/FurInsight',
     'ai-internship': 'AICTE intern Certificate.pdf', 
     'dashboard': 'https://github.com/yourusername/dashboard',
-    'copyright': 'Cover_Letter 1.pdf',
+    'copyright': 'copyrighted.pdf',
   };
   
   window.open(projectLinks[projectName], '_blank');
