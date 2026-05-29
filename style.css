@@ -228,22 +228,23 @@
     z-index: 200;
   }
   /* PAGE TWO BACKGROUND */
-.page-two {
-    position: fixed;
-    inset: 0;
+.page-two{
+    min-height: 100vh;
 
     background:
-    radial-gradient(circle at top left, #dbeafe 0%, transparent 35%),
-    radial-gradient(circle at bottom right, #c7d2fe 0%, transparent 35%),
-    linear-gradient(135deg, #f8fafc, #eef2ff);
+    linear-gradient(
+        rgba(240,244,255,0.88),
+        rgba(240,244,255,0.88)
+    ),
+    url("bckgrd.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    opacity: 0;
-    transition: opacity 0.8s ease 0.6s;
-    z-index: 1;
 }
   
   .page-two.show {
