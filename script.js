@@ -1,212 +1,82 @@
-/* =========================================
-   DATA ANALYTICS LOADER (Landing → Page Two)
-   ========================================= */
-   let isLoading = false;
+emailjs.init("XOCf3yXQnWGb5kICA");
 
-   function openDoors() {
-     if (isLoading) return;
-     isLoading = true;
-   
-     const loader = document.getElementById("loader");
-     const pageTwo = document.querySelector(".page-two");
-     const percentEl = document.getElementById("percent");
-   
-     loader.classList.add("active");
-   
-     let percent = 0;
-   
-     // Animate percentage
-     const interval = setInterval(() => {
-       percent += Math.floor(Math.random() * 4) + 1; // 1–4% per step
-       if (percent >= 100) percent = 100;
-       percentEl.textContent = percent + "%";
-       if (percent === 100) clearInterval(interval);
-     }, 50); // update every 50ms
-   
-     // Show page two after loader
-     setTimeout(() => {
-       loader.classList.remove("active");
-       pageTwo.classList.add("show");
-     }, 2100); // 2.5 seconds total
-   }
-   
-   
-   
-   /* =========================================
-      RESUME TRANSITION (Page Two → Page Three)
-      ========================================= */
-   
-   document.addEventListener("DOMContentLoaded", () => {
-     const resumeBtn = document.getElementById("resumeBtn");
-     const pageTwo = document.querySelector(".page-two");
-     const pageThree = document.querySelector(".page-three");
-     const loader = document.getElementById("loader");
-   
-     if (!resumeBtn) return;
-   
-     resumeBtn.addEventListener("click", () => {
-       // SHOW LOADER AGAIN
-       //loader.classList.add("active");
-   
-       // SIMULATE LOADING
-       setTimeout(() => {
-         loader.classList.remove("active");
-         pageTwo.classList.remove("show");
-         pageThree.classList.add("show");
-       }, 100); // 1.8 seconds
-     });
-   });
-   /* ===============================
-   GLOBAL NAVIGATION BUTTONS
-   =============================== */
-   const homeBtn = document.getElementById("homeBtn");
-   const backBtn = document.getElementById("backBtn");
-   
-   homeBtn.addEventListener("click", () => {
-     document.querySelector(".page-two").classList.remove("show");
-     document.querySelector(".page-three").classList.remove("show");
-     document.querySelector(".page-four").classList.remove("show");
-   
-     document.querySelector(".page-three").scrollTo(0, 0);
-   });
-   
-   backBtn.addEventListener("click", () => {
-     const pageTwo = document.querySelector(".page-two");
-     const pageThree = document.querySelector(".page-three");
-     const pageFour = document.querySelector(".page-four"); // FIXED
-     const pageFive = document.querySelector(".page-five"); // FIXED (if you add it later)
-    
+/* ── helpers ── */
+const $  = id => document.getElementById(id);
+const show = el => el.classList.add("show");
+const hide = el => el.classList.remove("show");
+const visible = el => el && el.classList.contains("show");
 
+const landing   = $("landing");
+const enterBtn  = $("enterBtn");
+const pageTwo   = $("pageTwo");
+const pageThree = $("pageThree");
+const pageFour  = $("pageFour");
+const pageFive  = $("pageFive");
 
+/* ── DOOR OPEN ── */
+let hasEntered = false;
 
-     if (pageFive && pageFive.classList.contains("show")) { 
-      pageFive.classList.remove("show"); 
-      pageTwo.classList.add("show"); 
-      return; 
-    }
-     
-      // If on page four → go back to page two
-     if (pageFour && pageFour.classList.contains("show")) {
-       pageFour.classList.remove("show");
-       pageTwo.classList.add("show");
-       return;
-     }
-   
-     // If on page three → go back to page two
-     if (pageThree.classList.contains("show")) {
-       pageThree.classList.remove("show");
-       pageTwo.classList.add("show");
-       return;
-     }
-   
-     // If on page two → go back to landing
-     if (pageTwo.classList.contains("show")) {
-       pageTwo.classList.remove("show");
-       return;
-     }
-   });
-   
-  
-  
+function openDoors() {
+  if (hasEntered) return;
+  hasEntered = true;
+  enterBtn.classList.add("hidden");
+  landing.classList.add("doors-open");
+  setTimeout(() => show(pageTwo), 300);
+  setTimeout(() => landing.classList.add("doors-gone"), 1100);
+}
 
-document.querySelector('.download-btn').addEventListener('click', () => {
-  window.open('Resume_Malhar__1_.pdf', '_blank');
-});
-// Trigger Enter button when pressing Enter key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    const enterBtn = document.querySelector(".enter-btn");
-    if (enterBtn) enterBtn.click();
-  }
+enterBtn.addEventListener("click", openDoors);
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !hasEntered) openDoors();
 });
 
-// Trigger Enter button when clicking anywhere on the screen
-document.addEventListener("click", (e) => {
-  const enterBtn = document.querySelector(".enter-btn");
-  if (enterBtn && !document.querySelector(".page-two").classList.contains("show")) {
-    enterBtn.click();
-  }
+/* ── HOME ── */
+function goHome() {
+  hide(pageTwo); hide(pageThree); hide(pageFour); hide(pageFive);
+  landing.classList.remove("doors-open","doors-gone");
+  enterBtn.classList.remove("hidden");
+  pageThree.scrollTo(0,0);
+  hasEntered = false;
+}
+$("homeBtn").addEventListener("click", goHome);
+
+/* ── BACK ── */
+$("backBtn").addEventListener("click", () => {
+  if (visible(pageFive))  { hide(pageFive);  show(pageTwo); return; }
+  if (visible(pageFour))  { hide(pageFour);  show(pageTwo); return; }
+  if (visible(pageThree)) { hide(pageThree); show(pageTwo); return; }
+  if (visible(pageTwo))   { goHome(); return; }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+/* ── CTA BUTTONS ── */
+$("resumeBtn").addEventListener("click",   () => { hide(pageTwo); show(pageThree); });
+$("projectsBtn").addEventListener("click", () => { hide(pageTwo); show(pageFour);  });
+$("contactBtn").addEventListener("click",  () => { hide(pageTwo); show(pageFive);  });
+$("downloadBtn").addEventListener("click", () => window.open("Resume_Malhar__1_.pdf","_blank"));
 
-  /* ===============================
-     PROJECTS BUTTON
-     =============================== */
-  const projectsBtn = document.querySelector(".btn.projects");
-  const pageTwo = document.querySelector(".page-two");
-  const pageFour = document.querySelector(".page-four");
+/* ── POPUP ── */
+function showPopup(msg) {
+  $("popupText").textContent = msg;
+  show($("messagePopup"));
+  setTimeout(() => hide($("messagePopup")), 2600);
+}
 
-  if (projectsBtn) {
-    projectsBtn.addEventListener("click", () => {
-      pageTwo.classList.remove("show");
-      pageFour.classList.add("show");
-    });
-  }
-
-  /* ===============================
-     GET IN TOUCH BUTTON
-     =============================== */
-  const contactBtn = document.querySelector(".btn.contact");
-  const pageFive = document.querySelector(".page-five");
-
-  if (contactBtn) {
-    contactBtn.addEventListener("click", () => {
-      pageTwo.classList.remove("show");
-      pageFive.classList.add("show");
-    });
-  }
-  /* =============================== 
-  POPUP FUNCTION (ADD THIS HERE) =
-  ============================== */ 
-  function showPopup(message) { 
-    const popup = document.getElementById("messagePopup"); 
-    const popupText = document.getElementById("popupText"); 
-    popupText.textContent = message; popup.classList.add("show"); 
-    setTimeout(() => { popup.classList.remove("show"); 
-  }, 2500); }
-  /* ===============================
-     EMAILJS FORM SUBMISSION
-     =============================== */
-  const contactForm = document.getElementById("contactForm");
-  const formStatus = document.getElementById("formStatus");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      emailjs.sendForm("service_bov0kwd", "template_vw0x5ia", this)
-        .then(() => {
-          showPopup("Message sent successfully!");
-
-          contactForm.reset();
-
-          setTimeout(() => {
-            formStatus.style.opacity = "0";
-          }, 3000);
-        })
-        .catch((error) => {
-          fshowPopup("Failed to send message. Try again.");
-
-          setTimeout(() => {
-            formStatus.style.opacity = "0";
-          }, 3000);
-
-          console.error("EmailJS Error:", error);
-        });
-    });
-  }
-
+/* ── EMAILJS ── */
+$("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  emailjs.sendForm("service_bov0kwd","template_vw0x5ia",this)
+    .then(()  => { showPopup("Message sent! ✓"); this.reset(); })
+    .catch(err => { showPopup("Failed to send. Try again."); console.error(err); });
 });
 
-// Simple version - opens URL in new tab
-function openProject(projectName) {
-  const projectLinks = {
-    'furinsight': 'https://github.com/Malhargujar12/FurInsight',
-    'ai-internship': 'AICTE intern Certificate.pdf', 
-    'dashboard': 'https://github.com/yourusername/dashboard',
-    'copyright': 'copyrighted.pdf',
+/* ── PROJECTS ── */
+function openProject(name) {
+  const links = {
+    furinsight:     "https://github.com/Malhargujar12/FurInsight",
+    customer_churn: "#",
+    dashboard:      "https://github.com/yourusername/dashboard",
+    copyright:      "copyrighted.pdf",
   };
-  
-  window.open(projectLinks[projectName], '_blank');
+  const url = links[name];
+  if (url && url !== "#") window.open(url,"_blank");
 }
