@@ -52,7 +52,7 @@ $("backBtn").addEventListener("click", () => {
 $("resumeBtn").addEventListener("click",   () => { hide(pageTwo); show(pageThree); });
 $("projectsBtn").addEventListener("click", () => { hide(pageTwo); show(pageFour);  });
 $("contactBtn").addEventListener("click",  () => { hide(pageTwo); show(pageFive);  });
-$("downloadBtn").addEventListener("click", () => window.open("Resume_Malhar__1_.pdf","_blank"));
+$("downloadBtn").addEventListener("click", () => window.open("Malhar_Gujar_Resume_.pdf","_blank"));
 
 /* ── POPUP ── */
 function showPopup(msg) {
